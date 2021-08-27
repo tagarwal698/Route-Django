@@ -37,7 +37,7 @@ class AccountView(TemplateView):
 
 def ProfileView(request):   #this is used to allow users to update their profile
 	user = request.user
-	up = request.userprofile
+	up = request.user.userprofile
 
 	form = UserProfileForm(instance = up)
 
@@ -87,7 +87,7 @@ class SignUpView(AjaxFormMixin, FormView):
 	 			obj.email = obj.username
 	 			obj.save()
 	 			up = obj.userprofile
-	 			up.captcha_score = float(captach["score"])
+	 			up.captcha_score = float(captcha["score"])
 	 			up.save()
 
 	 			login(self.request, obj, backend = 'django.contrib.auth.backends.ModelBackend')
@@ -121,7 +121,7 @@ class SignInView(AjaxFormMixin, FormView):
 			if user is not None:
 				login(self.request, user, backend = 'django.contrib.auth.backends.ModelBackend')
 				result = "Success"
-				message = "You are not logged in."
+				message = "You are logged in."
 			else:
 				message.FormErrors(form)
 			data = {'result':result, 'message' : message}
