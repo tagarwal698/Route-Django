@@ -22,12 +22,12 @@ def FormErrors(*args):
 def reCAPTCHAValidation(token):
 	#  this is an api call to captcha
 	result = requests.post(
-		'https://www.google.com/recaptcha/api/siteverify'
-		data = {
-			'secret': settings.RECAPTCHA_PRIVATE_KEY,
-			'response' : token
-		}
-		)
+		'https://www.google.com/recaptcha/api/siteverify',
+		 data={
+		 	'secret': settings.RECAPTCHA_SECRET_KEY,
+			'response': token
+		 })
+		
 	return result.json()
 
 
