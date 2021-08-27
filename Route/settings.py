@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Route.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,9 +133,11 @@ STATIC_URL = '/static/'
 
 GOOGLE_API_KEY = "AIzaSyBWoBDENMiJDLTru1_5deObC3ccDfe1JJ4"
 
-RECAPTCHA_KEY = "6Lc9ggscAAAAAL27zyz2TAZXoQ5hyLfb1GamPs-m"
+RECAPTCHA_PUBLIC_KEY = "6Lc9ggscAAAAAL27zyz2TAZXoQ5hyLfb1GamPs-m"
 
 RECAPTCHA_SECRET_KEY = "6Lc9ggscAAAAAH6nopO47iB5phtm35v4XYDrl7UO"
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = "users:sign-in"
 LOGIN_REDIRECT_URL = "users:account"
